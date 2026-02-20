@@ -91,5 +91,11 @@ systemctl status firewalld
 
 ```bash
 systemctl stop firewalld
-HTTP traffic immediately worked.
 ```
+HTTP traffic immediately worked.
+
+##Root Causes
+Reverse path filtering (```rp_filter```) on the router was blocking the forwarded traffic.
+
+```firewalld``` on VM2 was actively blocking web traffic coming from the ```192.168.200.0/24``` subnet.
+
