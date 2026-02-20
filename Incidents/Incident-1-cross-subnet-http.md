@@ -35,4 +35,32 @@ Error observed:
 curl 192.168.100.10
 # Output: No route to host / Connection refused
 ```
+## How I Investigated
 
+Step 1 – Verify Service
+On VM2, confirm the web server is actually running and listening for traffic:
+
+```bash
+ss -tulnp | grep :80
+Confirmed nginx is listening on 0.0.0.0:80.
+```
+Step 2 – Verify Routing Logic
+On VM1 (Router), test how the kernel is routing the traffic:
+
+```bash
+ip route get 192.168.100.10 from 192.168.200.10
+# Output: Network is unreachable
+This indicated a Forwarding Information Base (FIB) failure.
+```
+Step 3 – Identify Kernel Source Validation
+Checked reverse path filtering, a security feature that can sometimes drop legitimately routed packets:
+
+```bash
+sysctl net.ipv4.conf.enp7s0.rp_filter
+```
+```rp_filter``` was enabled. Disabled it temporarily:
+
+```bash
+sysctl -w net.ipv4.conf.all.rp_filter=0
+Forwarding lookup succeeded after disabling.
+```
