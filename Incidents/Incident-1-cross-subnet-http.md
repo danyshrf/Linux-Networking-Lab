@@ -26,3 +26,12 @@ VM1 Router
         |
         |
 VM2 (192.168.100.10)
+```
+## Problem Statement
+VM3 could ping VM2, but could not access the HTTP service on VM2.
+
+Error observed:
+```
+curl 192.168.100.10
+# Output: No route to host / Connection refused
+```
