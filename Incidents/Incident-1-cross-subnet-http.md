@@ -64,3 +64,19 @@ sysctl net.ipv4.conf.enp7s0.rp_filter
 sysctl -w net.ipv4.conf.all.rp_filter=0
 Forwarding lookup succeeded after disabling.
 ```
+Forwarding lookup succeeded after disabling.
+
+Step 4 – Packet-Level Verification
+On VM1 (Router), run packet captures on both internal interfaces to watch the traffic flow:
+
+```Bash
+tcpdump -i enp8s0 tcp port 80
+tcpdump -i enp7s0 tcp port 80
+```
+Observed:
+
+SYN packet entered the router.
+
+SYN packet forwarded to LAN1.
+
+No SYN-ACK packet returned.
