@@ -80,3 +80,16 @@ SYN packet entered the router.
 SYN packet forwarded to LAN1.
 
 No SYN-ACK packet returned.
+
+Step 5 – Check Destination Host Firewall
+On VM2 (App Server), check if the local firewall is dropping the incoming request:
+
+```Bash
+systemctl status firewalld
+```
+```firewalld``` was active. Stopped it temporarily:
+
+```bash
+systemctl stop firewalld
+HTTP traffic immediately worked.
+```
