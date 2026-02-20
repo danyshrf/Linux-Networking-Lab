@@ -109,3 +109,15 @@ firewall-cmd --permanent --add-source=192.168.200.0/24
 firewall-cmd --permanent --add-service=http
 firewall-cmd --reload
 ```
+
+## Lessons Learned
+ip route get <dst> from <src> is critical for debugging forwarding issues.
+
+rp_filter can silently break multi-NIC routers without obvious log entries.
+
+Ping success does not guarantee TCP success. ICMP and TCP are handled differently by firewalls.
+
+Packet capture (tcpdump) is the fastest way to isolate where a network failure is happening.
+
+Host firewall rules matter just as much as hardware firewall rules in routed environments.
+
