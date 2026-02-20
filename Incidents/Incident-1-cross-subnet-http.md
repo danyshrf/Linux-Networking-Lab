@@ -94,8 +94,18 @@ systemctl stop firewalld
 ```
 HTTP traffic immediately worked.
 
-##Root Causes
+## Root Causes
 Reverse path filtering (```rp_filter```) on the router was blocking the forwarded traffic.
 
 ```firewalld``` on VM2 was actively blocking web traffic coming from the ```192.168.200.0/24``` subnet.
 
+## Resolution
+Disabled rp_filter for the multi-interface router to allow proper packet forwarding.
+
+Added a permanent ```firewalld``` rule on the App Server to permit the traffic, rather than leaving the firewall disabled:
+
+```Bash
+firewall-cmd --permanent --add-source=192.168.200.0/24
+firewall-cmd --permanent --add-service=http
+firewall-cmd --reload
+```
