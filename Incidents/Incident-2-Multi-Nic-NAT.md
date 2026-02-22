@@ -108,3 +108,32 @@ sysctl --system
 ```bash
 iptables -t nat -A POSTROUTING -s 192.168.200.0/24 -o enp1s0 -j MASQUERADE
 ```
+### Libvirt Internal Network (this one of the key area help me to solve the issue)
+```XML
+<network>
+  <name>internal200</name>
+  <bridge name='virbr2'/>
+  <forward mode='none'/>
+</network>
+```
+
+## -> What I Learned
+
+- Always debug layer by layer (L2 → L3 → NAT → Hypervisor)
+- Never assign duplicate gateway IPs
+- Libvirt networks can silently route traffic
+- NAT counters tell the truth
+- ```tcpdump``` is the most powerful tool in networking
+- Reverse path filtering can break multi-NIC routers
+- Hypervisor-level networking must be considered in debugging
+
+## Debugging Tools Used
+
+- ```tcpdump```
+- ```iptables -t nat -L -v```
+- ```ip route```
+- ```ip route get```
+- ```ip neigh```
+- ```brctl show```
+- ```virsh net-dumpxml```
+- ```sysctl```
