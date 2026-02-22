@@ -86,3 +86,25 @@ Used explicit source matching:
 ```
 iptables -t nat -A POSTROUTING -s 192.168.200.0/24 -o enp1s0 -j MASQUERADE
 ```
+
+### 4.Reverse Path Filtering Issues
+
+Multiple sysctl files were setting different ```rp_filter``` values.
+
+Strict mode caused asymmetric routing drops.
+
+Fix:
+```
+net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.default.rp_filter=0
+```
+### -> Final Working Configuration
+## Enable IP Forwarding
+```bash
+echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/router.conf
+sysctl --system
+```
+### NAT (Router Only)
+```bash
+iptables -t nat -A POSTROUTING -s 192.168.200.0/24 -o enp1s0 -j MASQUERADE
+```
