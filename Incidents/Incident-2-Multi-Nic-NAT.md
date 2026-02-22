@@ -76,3 +76,13 @@ Result:
 
 Fix:
 Disabled forwarding in internal network definition.
+
+### 3.NAT Rule Not Matching
+
+Original rule was too generic.
+
+Fix:
+Used explicit source matching:
+```
+iptables -t nat -A POSTROUTING -s 192.168.200.0/24 -o enp1s0 -j MASQUERADE
+```
