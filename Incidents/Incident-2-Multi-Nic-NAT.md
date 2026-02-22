@@ -44,3 +44,25 @@ At first glance:
 * ip_forward was enabled
 
 But internet traffic still failed.
+
+### Root Causes Identified
+
+This incident had multiple layered issues:
+
+1️Duplicate Gateway IP (Critical)
+
+The Ubuntu host bridge and VM1 were both assigned:
+```
+192.168.200.1
+```
+This caused:
+
+* ARP instability
+* Traffic being sent to the host instead of VM1
+
+Fix:
+Removed ```<ip>``` section from libvirt internal network XML.
+Made it a pure L2 bridge:
+```
+<forward mode='none'/>
+```
