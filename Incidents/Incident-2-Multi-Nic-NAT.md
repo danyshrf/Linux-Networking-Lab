@@ -28,4 +28,19 @@ VM3 (Client) → VM1 (Router/NAT) → Ubuntu Host NAT → Internet
       192.168.100.0/24    192.168.200.0/24
            VM2 (Server)         VM3 (Client)
 ```
+### Incident Summary
+VM3 could ping the router (192.168.200.1),
+but could NOT reach the internet (8.8.8.8).
 
+Error observed:
+
+```
+Destination Port Unreachable
+```
+At first glance:
+
+* Routing looked correct
+* NAT rule existed
+* ip_forward was enabled
+
+But internet traffic still failed.
