@@ -45,11 +45,10 @@ At first glance:
 
 But internet traffic still failed.
 
-### Root Causes Identified
+## -> Root Causes Identified
 
 This incident had multiple layered issues:
-
-1️Duplicate Gateway IP (Critical)
+### 1.Duplicate Gateway IP (Critical)
 
 The Ubuntu host bridge and VM1 were both assigned:
 ```
@@ -66,3 +65,14 @@ Made it a pure L2 bridge:
 ```
 <forward mode='none'/>
 ```
+### 2.Host Routing Bypassing VM1
+
+Libvirt was forwarding traffic between networks directly on the host.
+
+Result:
+
+* NAT on VM1 never triggered
+* MASQUERADE counters stayed at 0
+
+Fix:
+Disabled forwarding in internal network definition.
