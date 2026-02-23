@@ -50,3 +50,13 @@ Observed:
 
 Root Cause:
 Firewall dropped ICMP at Layer 3.
+
+### Packet Flow Analysis
+```text
+ARP (L2) → Success
+ICMP (L3) → Dropped by firewall
+```
+
+Key insight:
+ARP operates at Layer 2 and bypasses IP firewall filtering.
+
