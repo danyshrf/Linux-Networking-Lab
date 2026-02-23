@@ -6,7 +6,7 @@ Simulated network failure by:
 
 - Bringing interface down
 - Removing IP address
-- Testing connectivity impact
+- Testing connectivity 
 - Observing ARP behavior under firewall block
 
 ### Failure Simulation 1 – Interface Down
@@ -21,3 +21,17 @@ Observed:
 
 Root Cause:
 Interface administratively disabled → No Layer 1 transmission.
+
+### Failure Simulation 2 – Remove IP
+```bash
+ip addr del 192.168.100.10/24 dev enp1s0
+```
+Observed:
+
+- Interface still ```UP```
+- ```LOWER_UP``` present
+- No ```inet``` entry
+- Ping failed with "Network unreachable"
+
+Root Cause:
+No source IP available → Layer 3 routing decision failed.
