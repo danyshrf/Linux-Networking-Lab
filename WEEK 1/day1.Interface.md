@@ -35,3 +35,18 @@ Observed:
 
 Root Cause:
 No source IP available → Layer 3 routing decision failed.
+
+### Failure Simulation 3 – Firewall Blocking ICMP
+
+On router:
+```bash
+firewall-cmd --add-icmp-block=echo-request
+```
+Observed:
+- ARP resolved successfully
+- ip neigh showed REACHABLE
+- ICMP request seen in tcpdump
+- No ICMP reply
+
+Root Cause:
+Firewall dropped ICMP at Layer 3.
