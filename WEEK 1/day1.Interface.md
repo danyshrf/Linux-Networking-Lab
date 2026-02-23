@@ -57,6 +57,12 @@ ARP (L2) → Success
 ICMP (L3) → Dropped by firewall
 ```
 
-Key insight:
-ARP operates at Layer 2 and bypasses IP firewall filtering.
+## Key insight:
+- ARP operates at Layer 2 and bypasses IP firewall filtering.
+- Key Learnings
+- UP = administrative state
+- LOWER_UP = physical link detected
+- Removing IP breaks routing, not Layer 2
+- Firewall does not affect ARP
+- Ping failure does not equal network failure
 
