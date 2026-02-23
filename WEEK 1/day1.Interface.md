@@ -65,4 +65,14 @@ ICMP (L3) → Dropped by firewall
 - Removing IP breaks routing, not Layer 2
 - Firewall does not affect ARP
 - Ping failure does not equal network failure
-
+- 
+### Command I Used: 
+```text
+ip link show
+ip addr show
+ip route
+ip neigh
+ethtool enp1s0
+tcpdump -i enp1s0 icmp
+firewall-cmd --list-all
+```
