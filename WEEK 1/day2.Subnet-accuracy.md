@@ -87,11 +87,16 @@ ip neigh
 
 The failure occurs during the return path. This is a classic example of asymmetric communication caused by a subnet mismatch.
 
-Key Concepts Learned
+### Key Concepts Learned
 1.Subnet Determines "Local vs Remote": Each host independently decides if a destination is inside its subnet.
 
 - If Yes → ARP directly.
 - If No → Send to gateway.
 
-2.
+2.Subnet Mismatch Creates Different Realities:
+
+- VM1 (/24 view): ```192.168.100.0``` – ```255``` is local.
+- VM2 (/25 view): ```192.168.100.128``` – ```255``` is local.
+- They disagree on what is local, causing one-way communication.
+
 
