@@ -68,3 +68,11 @@ VM2 → VM1 (Failure)
 ip route add default via 192.168.100.200
 ```
 (No device exists at .200)
+
+Observed Behavior
+Checking ARP on VM2:
+
+```Bash
+ip neigh
+# Output shows: 192.168.100.200 INCOMPLETE
+```
