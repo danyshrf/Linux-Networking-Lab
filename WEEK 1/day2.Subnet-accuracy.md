@@ -61,3 +61,10 @@ VM2 → VM1 (Failure)
 - The ping reply fails.
 - Why: VM2 sees the router IP ```(192.168.100.1)``` as remote because it does not fall within its ```/25``` range (128-255). VM2 attempts to send the reply to its default gateway instead of directly to VM1.
 
+## Incident 3 – Wrong Gateway
+**Action:** Configured VM2 with a non-existent gateway.
+
+```Bash
+ip route add default via 192.168.100.200
+```
+(No device exists at .200)
