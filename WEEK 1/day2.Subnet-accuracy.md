@@ -9,7 +9,7 @@ Understand how incorrect subnet masks and gateway configurations cause:
 
 ---
 
-## 🏗 Lab Architecture
+## Lab Architecture
 
 | Machine | IP Address | Role |
 | :--- | :--- | :--- |
@@ -25,3 +25,26 @@ Understand how incorrect subnet masks and gateway configurations cause:
 ```bash
 ip addr del 192.168.100.10/24 dev enp7s0
 ip addr add 192.168.100.10/25 dev enp7s0
+```
+
+Result: Ping between VM1 and VM2 still worked.
+
+Why?
+A /25 splits the subnet into two halves:
+- 192.168.100.0 – 127
+- 192.168.100.128 – 255
+
+Both ```192.168.100.10``` and ```192.168.100.1``` fall into the first half. Both machines still believe they are in the same subnet, resulting in no communication failure.
+
+## Incident  2 – True Subnet Mismatch
+
+**Action:** Changed VM2 into the upper half of the /25 subnet.
+
+```Bash
+ip addr del 192.168.100.10/25 dev enp7s0
+ip addr add 192.168.100.130/25 dev enp7s0
+```
+Current State:
+
+- VM2 Subnet: 192.168.100.128 – 192.168.100.255
+- Router (VM1): 192.168.100.1/24 (Sees 0-255 as local)
