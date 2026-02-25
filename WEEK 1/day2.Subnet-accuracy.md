@@ -105,3 +105,13 @@ for the gateway's MAC address, not the final destination.
 4.One-Way Ping ≠ Firewall: This specific failure was not caused by a firewall, 
 physical link issue, or routing table corruption. It was purely incorrect subnet logic.
 
+### Debug Commands Used
+```Bash
+ip addr
+ip route
+ip route get 192.168.100.1
+ip neigh
+tcpdump -i enp7s0 arp
+ping <ip>
+```
+
