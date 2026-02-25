@@ -99,4 +99,9 @@ The failure occurs during the return path. This is a classic example of asymmetr
 - VM2 (/25 view): ```192.168.100.128``` – ```255``` is local.
 - They disagree on what is local, causing one-way communication.
 
+3.ARP Resolves Next-Hop, Not Destination: If the destination is remote, Linux ARPs 
+for the gateway's MAC address, not the final destination.
+
+4.One-Way Ping ≠ Firewall: This specific failure was not caused by a firewall, 
+physical link issue, or routing table corruption. It was purely incorrect subnet logic.
 
