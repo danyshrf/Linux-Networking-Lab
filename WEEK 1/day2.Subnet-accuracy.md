@@ -48,3 +48,11 @@ Current State:
 
 - VM2 Subnet: 192.168.100.128 – 192.168.100.255
 - Router (VM1): 192.168.100.1/24 (Sees 0-255 as local)
+
+Observed Behavior
+VM1 → VM2 (Success)
+
+- The ping request reaches VM2.
+- Why: VM1 uses a /24 mask and believes all 192.168.100.x addresses are local. It ARPs for VM2 and successfully sends the packet.
+
+
