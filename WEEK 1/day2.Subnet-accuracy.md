@@ -53,6 +53,11 @@ Observed Behavior
 VM1 → VM2 (Success)
 
 - The ping request reaches VM2.
-- Why: VM1 uses a /24 mask and believes all 192.168.100.x addresses are local. It ARPs for VM2 and successfully sends the packet.
+- Why: VM1 uses a ```/24``` mask and believes all ```192.168.100.x``` addresses are local. It ARPs for VM2 and successfully sends the packet.
 
+
+VM2 → VM1 (Failure)
+
+- The ping reply fails.
+- Why: VM2 sees the router IP ```(192.168.100.1)``` as remote because it does not fall within its ```/25``` range (128-255). VM2 attempts to send the reply to its default gateway instead of directly to VM1.
 
