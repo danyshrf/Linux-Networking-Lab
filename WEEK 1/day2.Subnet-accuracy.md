@@ -81,4 +81,9 @@ ip neigh
 - The reply packet never leaves VM2.
 - Ping fails.
 
-  
+  Packet Flow Analysis
+- Forward Path: ```VM1``` → ```ARP``` → ```VM2``` → ```ICMP``` Request Delivered
+- Return Path: ```VM2``` → ARP for ```192.168.100.200``` → No reply → Packet dropped
+
+The failure occurs during the return path. This is a classic example of asymmetric communication caused by a subnet mismatch.
+
