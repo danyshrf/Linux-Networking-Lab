@@ -76,3 +76,9 @@ Checking ARP on VM2:
 ip neigh
 # Output shows: 192.168.100.200 INCOMPLETE
 ```
+- ARP requests are sent for the gateway. 
+- No reply is received.
+- The reply packet never leaves VM2.
+- Ping fails.
+
+  
