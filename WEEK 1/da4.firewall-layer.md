@@ -51,4 +51,26 @@ Reason: Packet hits FORWARD chain → policy DROP.
 Works
 Reason: OUTPUT chain still ACCEPT.
 
+## Experiment 2 – Block INPUT
+
+On VM1:
+```bash
+iptables -P INPUT DROP
+```
+
+Observations
+### VM2 → VM1
+
+Fails
+Reason: Packet hits INPUT → DROP.
+
+### VM1 → VM2
+
+Fails
+Reason: Request leaves (OUTPUT OK), but reply hits INPUT → DROP.
+
+### VM2 → VM3
+
+Works
+Reason: Transit traffic uses FORWARD, not INPUT.
 
