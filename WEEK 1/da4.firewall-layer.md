@@ -15,3 +15,9 @@ Focus areas:
 | VM3     | 192.168.200.10                | Client     |
 
 ## Netfilter Chain Model
+
+| Chain   | Applies To                          |
+| ------- | ----------------------------------- |
+| INPUT   | Traffic destined to the router      |
+| OUTPUT  | Traffic originating from the router |
+| FORWARD | Traffic passing through the router  |
