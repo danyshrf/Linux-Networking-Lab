@@ -36,7 +36,19 @@ On VM1:
 iptables -P FORWARD DROP
 ```
 Observations
-VM2 → VM1
+### VM2 → VM1
 
 Works
 Reason: Packet hits INPUT chain.
+
+### VM2 → VM3
+
+Fails
+Reason: Packet hits FORWARD chain → policy DROP.
+
+### VM1 → VM2
+
+Works
+Reason: OUTPUT chain still ACCEPT.
+
+
