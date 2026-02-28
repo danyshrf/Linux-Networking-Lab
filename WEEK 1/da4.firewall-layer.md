@@ -21,3 +21,22 @@ Focus areas:
 | INPUT   | Traffic destined to the router      |
 | OUTPUT  | Traffic originating from the router |
 | FORWARD | Traffic passing through the router  |
+
+rule:
+```bash
+If router is destination → INPUT
+If router is source → OUTPUT
+If router is middleman → FORWARD
+```
+
+###Experiment 1 – Block Forwarding
+
+On VM1:
+```bash
+iptables -P FORWARD DROP
+```
+Observations
+VM2 → VM1
+
+Works
+Reason: Packet hits INPUT chain.
