@@ -29,7 +29,7 @@ If router is source → OUTPUT
 If router is middleman → FORWARD
 ```
 
-###Experiment 1 – Block Forwarding
+## Experiment 1 – Block Forwarding
 
 On VM1:
 ```bash
@@ -51,7 +51,7 @@ Reason: Packet hits FORWARD chain → policy DROP.
 Works
 Reason: OUTPUT chain still ACCEPT.
 
-## Experiment 2 – Block INPUT
+## Incident 2 – Block INPUT
 
 On VM1:
 ```bash
@@ -71,6 +71,28 @@ Reason: Request leaves (OUTPUT OK), but reply hits INPUT → DROP.
 
 ### VM2 → VM3
 
+## Incident 3 – Block OUTPUT
+
+On VM1:
+
+iptables -P OUTPUT DROP
+🔍 Observations
+VM2 → VM1
+
+❌ Fails
+Reason: Reply from VM1 blocked in OUTPUT.
+
+VM1 → VM2
+
+❌ Fails
+Reason: Request blocked in OUTPUT.
+
+VM2 → VM3
+
+✅ Works
+Reason: Transit traffic uses FORWARD chain only.
+
 Works
 Reason: Transit traffic uses FORWARD, not INPUT.
+
 
