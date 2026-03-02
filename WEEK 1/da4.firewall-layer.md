@@ -79,20 +79,79 @@ iptables -P OUTPUT DROP
 🔍 Observations
 VM2 → VM1
 
-❌ Fails
+ Fails
 Reason: Reply from VM1 blocked in OUTPUT.
 
 VM1 → VM2
 
-❌ Fails
+ Fails
 Reason: Request blocked in OUTPUT.
 
 VM2 → VM3
 
-✅ Works
+Works
 Reason: Transit traffic uses FORWARD chain only.
 
 Works
 Reason: Transit traffic uses FORWARD, not INPUT.
 
 
+## Incident 4 – Block OUTPUT + FORWARD
+
+On VM1:
+```
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+```
+ Observations
+
+All traffic breaks:
+
+Traffic	Result
+VM2 → VM1	❌
+VM1 → VM2	❌
+VM2 → VM3	❌
+
+Because:
+- Local replies blocked by OUTPUT
+- Transit traffic blocked by FORWARD
+
+## Packet Flow Analysis Example
+
+### VM2 → VM3:
+```
+VM2 → VM1 → VM3
+```
+
+At VM1:
+- Not destination → FORWARD chain
+- FORWARD policy determines outcome
+
+Firewall decision happens after routing decision.
+
+### Debug Commands Used
+```
+iptables -L -v -n
+tcpdump -i <interface> icmp
+ip route
+```
+## Key Learnings
+
+- Firewall and routing are separate layers.
+- FORWARD chain controls transit traffic.
+- INPUT chain controls traffic to router.
+- OUTPUT chain controls traffic from router.
+- Policy DROP can silently break traffic.
+- Ping failure does not always mean routing failure.
+
+Routing decides path.
+Firewall decides permission.
+
+Understanding chain selection is critical for debugging.
+
+Packet classification:
+```text
+Destination = router → INPUT
+Source = router → OUTPUT
+Transit traffic → FORWARD
+```
