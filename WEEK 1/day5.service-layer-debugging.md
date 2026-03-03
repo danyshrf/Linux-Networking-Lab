@@ -16,3 +16,25 @@ Focus:
 | **VM1** | `192.168.100.1` | Router + Web Server (nginx) |
 | **VM2** | `192.168.100.10` | Client |
 
+
+## Baseline Setup
+
+On VM1:
+```bash
+dnf install nginx -y
+systemctl start nginx
+systemctl enable nginx
+```
+Verify listening:
+```bash
+ss -tulnp | grep :80
+```
+Expected:
+```bash
+LISTEN 0 511 0.0.0.0:80
+```
+From VM2:
+```bash
+curl http://192.168.100.1
+```
+Success.
