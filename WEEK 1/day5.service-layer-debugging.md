@@ -9,3 +9,10 @@ Focus:
 - DROP vs REJECT
 - Bind address behavior
 - Client-side error interpretation
+
+###  Lab Architecture
+| Machine | IP | Role |
+| :--- | :--- | :--- |
+| **VM1** | `192.168.100.1` | Router + Web Server (nginx) |
+| **VM2** | `192.168.100.10` | Client |
+
