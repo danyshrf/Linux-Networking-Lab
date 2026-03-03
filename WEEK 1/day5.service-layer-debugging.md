@@ -185,7 +185,7 @@ Bind address decides:
 - On which interface is service available?
 
 ### Debug Commands Used
-```Bash
+```bash
 ss -tulnp
 iptables -L -n -v
 systemctl status nginx
@@ -200,3 +200,11 @@ ping
 - “Port is not reachable”
 - “Ping works but site doesn’t”
 - “Timeout vs refused confusion”
+
+## Key Takeaways
+
+- ```ss -tulnp``` confirms service listening.
+- DROP causes timeout.
+- REJECT causes immediate failure.
+- Binding to 127.0.0.1 blocks remote access.
+- Routing, firewall, and service are separate layers.
