@@ -38,3 +38,29 @@ From VM2:
 curl http://192.168.100.1
 ```
 Success.
+
+## Failure Scenario 1 – Service Stopped
+
+On VM1:
+```
+systemctl stop nginx
+```
+Test from VM2:
+```
+curl http://192.168.100.1
+```
+Result:
+```
+Connection refused
+```
+### Why?
+
+- Packet reaches VM1
+- No process listening on port 80
+- Kernel sends TCP RST
+
+Verification:
+```
+ss -tulnp | grep :80
+```
+No output.
