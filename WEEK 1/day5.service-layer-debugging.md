@@ -126,3 +126,36 @@ Difference from DROP:
 | Silent  | Sends error       |
 | Timeout | Immediate failure |
 ```
+
+## Failure Scenario 4 – Bind to Loopback Only
+
+Edit nginx config:
+```code
+listen 127.0.0.1:80;
+```
+Restart nginx:
+```
+systemctl restart nginx
+```
+Check:
+```
+ss -tulnp | grep :80
+```
+Output:
+```
+127.0.0.1:80
+```
+From VM2:
+```bash
+curl http://192.168.100.1
+```
+Result:
+```code
+Connection refused
+```
+### Why?
+
+- nginx is listening only on loopback
+- No service bound to 192.168.100.1
+- Kernel sends RST
+
