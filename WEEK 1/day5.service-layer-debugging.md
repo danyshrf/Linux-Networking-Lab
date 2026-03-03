@@ -64,3 +64,28 @@ Verification:
 ss -tulnp | grep :80
 ```
 No output.
+
+## Failure Scenario 2 – Firewall DROP Rule
+
+On VM1:
+```bash
+iptables -A INPUT -p tcp --dport 80 -j DROP
+```
+nginx still running.
+
+From VM2:
+```
+curl http://192.168.100.1
+```
+Result:
+```
+Connection timed out
+```
+### Why?
+
+- Packet reaches VM1
+- Firewall silently drops it
+- No response sent back
+- Client waits until timeout
+
+Firewall rule meaning:
