@@ -89,3 +89,11 @@ Connection timed out
 - Client waits until timeout
 
 Firewall rule meaning:
+```text
+| Option     | Meaning                   |
+| ---------- | ------------------------- |
+| -A INPUT   | Append to INPUT chain     |
+| -p tcp     | Match TCP traffic         |
+| --dport 80 | Match destination port 80 |
+| -j DROP    | Silently discard packet   |
+```
