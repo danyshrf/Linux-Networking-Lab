@@ -185,10 +185,18 @@ Bind address decides:
 - On which interface is service available?
 
 ### Debug Commands Used
-```
+```Bash
 ss -tulnp
 iptables -L -n -v
 systemctl status nginx
 curl
 ping
 ```
+
+## Production Relevance
+
+- This lab simulates common real-world tickets:
+- “Web server is down”
+- “Port is not reachable”
+- “Ping works but site doesn’t”
+- “Timeout vs refused confusion”
