@@ -97,3 +97,26 @@ Firewall rule meaning:
 | --dport 80 | Match destination port 80 |
 | -j DROP    | Silently discard packet   |
 ```
+
+## Failure Scenario 3 – Firewall REJECT Rule
+
+On VM1:
+```bash
+iptables -A INPUT -p tcp --dport 80 -j REJECT
+```
+From VM2:
+```
+curl http://192.168.100.1
+```
+Result:
+```
+Connection refused
+or
+No route to host
+```
+### Why?
+
+- Firewall actively sends error response
+- Client fails immediately
+
+Difference from DROP:
