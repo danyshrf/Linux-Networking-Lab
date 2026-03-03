@@ -120,3 +120,9 @@ No route to host
 - Client fails immediately
 
 Difference from DROP:
+```
+| DROP    | REJECT            |
+| ------- | ----------------- |
+| Silent  | Sends error       |
+| Timeout | Immediate failure |
+```
