@@ -159,3 +159,14 @@ Connection refused
 - No service bound to 192.168.100.1
 - Kernel sends RST
 
+
+## Error Messages and their cause
+```text
+| Client Error         | Root Cause                           |
+| -------------------- | ------------------------------------ |
+| Connection refused   | Service not listening OR REJECT rule |
+| Connection timed out | Firewall DROP                        |
+| No route to host     | ICMP reject or routing issue         |
+| Network unreachable  | No route in routing table            |
+```
+
