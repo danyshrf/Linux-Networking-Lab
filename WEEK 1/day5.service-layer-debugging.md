@@ -170,3 +170,25 @@ Connection refused
 | Network unreachable  | No route in routing table            |
 ```
 
+##Layer Separation Learned
+
+Routing decides:
+- Where should packet go?
+
+Firewall decides:
+- Is packet allowed?
+
+Service decides:
+- Is process listening?
+
+Bind address decides:
+- On which interface is service available?
+
+### Debug Commands Used
+```
+ss -tulnp
+iptables -L -n -v
+systemctl status nginx
+curl
+ping
+```
