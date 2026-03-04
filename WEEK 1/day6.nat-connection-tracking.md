@@ -183,3 +183,17 @@ Fix:
 ```bash
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 ```
+
+## Key Mental Model
+
+Internet access requires four components working together:
+```bash 
+LAN routing
+↓
+IP forwarding
+↓
+NAT translation
+↓
+Connection tracking
+```
+Breaking any of these prevents internet connectivity.
