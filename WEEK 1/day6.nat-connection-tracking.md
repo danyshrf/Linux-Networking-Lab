@@ -147,3 +147,16 @@ iptables -t nat -L -n -v
 ```
 ip a
 ```
+Observe packets with tcpdump
+```bash
+tcpdump -i enp1s0 icmp
+```
+**ey observation:**
+```bash
+| Packet Source  | Meaning         |
+| -------------- | --------------- |
+| 192.168.100.10 | NAT not applied |
+| 192.168.122.10 | NAT working     |
+
+```
+
