@@ -55,3 +55,18 @@ Permanent configuration:
 ```bash
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 ```
+## Step 2 – Configure NAT
+
+Add NAT rule on router:
+```bash
+iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE
+```
+```text
+| Option        | Meaning                                      |
+| ------------- | -------------------------------------------- |
+| `-t nat`      | Use NAT table                                |
+| `POSTROUTING` | Modify packet after routing decision         |
+| `-o enp1s0`   | Outgoing WAN interface                       |
+| `MASQUERADE`  | Replace source IP with router's interface IP |
+```
+
