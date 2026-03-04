@@ -159,4 +159,27 @@ tcpdump -i enp1s0 icmp
 | 192.168.122.10 | NAT working     |
 
 ```
+## DNS vs Connectivity
 
+During testing:
+```bash
+ping 8.8.8.8
+```
+worked, but:
+```bash
+curl google.com
+```
+failed.
+
+Root cause: **DNS resolution failure.**
+
+Connectivity to IP addresses was working, but domain names could not be resolved.
+
+### Check DNS configuration:
+```bash
+cat /etc/resolv.conf
+```
+Fix:
+```bash
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+```
