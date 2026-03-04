@@ -18,10 +18,23 @@
 | VM1     | 192.168.100.1  | LAN Gateway     |
 | VM2     | 192.168.100.10 | Internal Client |
 ```
-###Why NAT Is Required
+### Why NAT Is Required
 
 Internal machines use private IP ranges:
 ```
 192.168.x.x
 ```
 The public internet does not route these addresses.
+
+When VM2 sends traffic:
+```code
+SRC: 192.168.100.10
+DST: 8.8.8.8
+```
+The router rewrites it to:
+```
+SRC: 192.168.122.10
+DST: 8.8.8.8
+```
+This allows the internet to send replies back to the router.
+The router then maps the reply back to the internal machine.
