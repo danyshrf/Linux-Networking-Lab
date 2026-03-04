@@ -100,5 +100,20 @@ src=192.168.100.10 dst=8.8.8.8
 ```
 This table allows return packets to be mapped back to the original internal host.
 
+## Failure Scenario 1 – NAT Rule Removed
+
+Remove NAT rules:
+```
+iptables -t nat -F
+```
+Now VM2 cannot reach internet.
+
+Reason:
+
+Packets leave router with private source IP:
+```
+SRC: 192.168.100.10
+```
+External hosts cannot route replies to private addresses.
 
 
