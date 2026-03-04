@@ -81,7 +81,7 @@ Expected:
 - ICMP replies received 
 - HTTP requests succeed
 
-Connection Tracking
+### Connection Tracking
 
 Linux maintains a state table for NAT translations.
 
@@ -99,5 +99,6 @@ tcp ESTABLISHED
 src=192.168.100.10 dst=8.8.8.8
 ```
 This table allows return packets to be mapped back to the original internal host.
+
 
 
