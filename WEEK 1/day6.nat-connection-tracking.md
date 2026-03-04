@@ -38,3 +38,20 @@ DST: 8.8.8.8
 ```
 This allows the internet to send replies back to the router.
 The router then maps the reply back to the internal machine.
+
+## Step 1 – Enable IP Forwarding
+
+Linux does not behave as a router unless forwarding is enabled.
+
+Check:
+```bash
+sysctl net.ipv4.ip_forward
+```
+Enable:
+```bash
+sysctl -w net.ipv4.ip_forward=1
+```
+Permanent configuration:
+```bash
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+```
