@@ -197,3 +197,11 @@ NAT translation
 Connection tracking
 ```
 Breaking any of these prevents internet connectivity.
+
+## Key Takeaways
+
+- NAT rewrites source IP addresses for external communication.
+- Linux requires ```ip_forward=1``` to behave as a router.
+- MASQUERADE dynamically replaces source IP with interface address.
+- Connection tracking maps replies back to internal hosts.
+- DNS failures can appear as internet connectivity problems.
