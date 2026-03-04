@@ -69,4 +69,35 @@ iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE
 | `-o enp1s0`   | Outgoing WAN interface                       |
 | `MASQUERADE`  | Replace source IP with router's interface IP |
 ```
+## Step 3 – Test Internet Access
+
+From VM2:
+```
+ping 8.8.8.8
+curl google.com
+```
+Expected:
+
+- ICMP replies received 
+- HTTP requests succeed
+
+Connection Tracking
+
+Linux maintains a state table for NAT translations.
+
+View connection tracking entries:
+```
+conntrack -L
+```
+or
+```
+cat /proc/net/nf_conntrack
+```
+Example entry:
+```
+tcp ESTABLISHED
+src=192.168.100.10 dst=8.8.8.8
+```
+This table allows return packets to be mapped back to the original internal host.
+
 
