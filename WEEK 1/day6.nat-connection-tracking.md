@@ -116,4 +116,34 @@ SRC: 192.168.100.10
 ```
 External hosts cannot route replies to private addresses.
 
+## Failure Scenario 2 – IP Forwarding Disabled
 
+Disable forwarding:
+```
+sysctl -w net.ipv4.ip_forward=0
+```
+Result:
+
+- Router refuses to forward packets between interfaces.
+- Traffic from VM2 never leaves the router.
+
+### Debugging NAT Issues
+
+When internal hosts cannot reach internet:
+
+**Check gateway**
+```
+ip route
+```
+**Verify IP forwarding**
+```
+sysctl net.ipv4.ip_forward
+```
+**Inspect NAT rules**
+```
+iptables -t nat -L -n -v
+```
+**Confirm outgoing interface**
+```
+ip a
+```
