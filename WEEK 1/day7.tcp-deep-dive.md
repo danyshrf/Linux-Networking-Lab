@@ -88,4 +88,10 @@ Example packet:
 Flags [P.]
 ```
 Meaning:
+```text
+| Flag | Meaning                                        |
+| ---- | ---------------------------------------------- |
+| P    | PUSH – deliver data to application immediately |
+| ACK  | Acknowledge received data                      |
+```
 
