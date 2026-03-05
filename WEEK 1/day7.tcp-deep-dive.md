@@ -171,3 +171,14 @@ The SYN-ACK never returns.
 - SYN / SYN-ACK / ACK confirms connection establishment.
 - TCP flags indicate connection state.
 - Packet pattern recognition is critical for network troubleshooting.
+
+## Why Using 
+
+Packet analysis is used to debug real incidents such as:
+
+- Web servers not responding
+- Firewall misconfiguration
+- Packet loss in networks
+- Application timeouts
+- TCP retransmission issues
+- Tools like tcpdump provide the ground truth of network behavior.
