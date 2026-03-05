@@ -144,3 +144,22 @@ Packet captures reveal the root cause of many network issues.
 | Handshake succeeds but no data | Application issue                   |
 | Duplicate ACK + Retransmission | Packet loss                         |
 ```
+## Debug Scenario Example
+
+Scenario:
+```
+curl http://192.168.100.1
+```
+Client hangs.
+
+tcpdump shows:
+```
+SYN
+SYN
+SYN
+```
+Root cause:
+```
+Firewall DROP rule blocking port 80
+```
+The SYN-ACK never returns.
