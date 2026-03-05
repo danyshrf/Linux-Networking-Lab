@@ -52,3 +52,11 @@ Example tcpdump output:
 192.168.100.1.80 > 192.168.100.10.45822: Flags [S.]
 192.168.100.10.45822 > 192.168.100.1.80: Flags [.]
 ```
+
+### Step 1 — SYN
+
+Client → Server
+```
+Flags [S]
+```
+The client requests a new TCP connection.
