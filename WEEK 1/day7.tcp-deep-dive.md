@@ -1,6 +1,4 @@
 # TCP Deep Dive (Handshake & Connection Lifecycle)
-
- ## Goal
 Understand how TCP connections work at the packet level by capturing and analyzing a real HTTP session.
 
 **Focus areas:**
@@ -44,3 +42,4 @@ From VM2:
 curl http://192.168.100.1
 ```
 
+This triggers a full TCP connection.
