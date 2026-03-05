@@ -79,3 +79,13 @@ The client confirms the connection.
 
 At this point the TCP connection is ESTABLISHED.
 
+## Data Transfer
+
+After the handshake, HTTP data is exchanged.
+
+Example packet:
+```
+Flags [P.]
+```
+Meaning:
+
