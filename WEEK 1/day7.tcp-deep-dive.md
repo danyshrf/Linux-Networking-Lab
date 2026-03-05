@@ -109,3 +109,13 @@ This is called TCP 4-way termination.
 
 Why four packets?
 - Because TCP is full-duplex, meaning both sides close their data streams independently.
+
+## TCP Flag Reference
+| Flag | Meaning                     |
+| ---- | --------------------------- |
+| SYN  | Start connection            |
+| ACK  | Acknowledge packet          |
+| PSH  | Push data to application    |
+| FIN  | Gracefully close connection |
+| RST  | Reset connection            |
+
