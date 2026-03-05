@@ -94,4 +94,4 @@ Meaning:
 | P    | PUSH – deliver data to application immediately |
 | ACK  | Acknowledge received data                      |
 ```
-
+These packets contain HTTP request/response data.
