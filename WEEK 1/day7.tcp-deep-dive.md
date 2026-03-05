@@ -43,3 +43,12 @@ curl http://192.168.100.1
 ```
 
 This triggers a full TCP connection.
+
+## TCP 3-Way Handshake
+
+Example tcpdump output:
+```bash
+192.168.100.10.45822 > 192.168.100.1.80: Flags [S]
+192.168.100.1.80 > 192.168.100.10.45822: Flags [S.]
+192.168.100.10.45822 > 192.168.100.1.80: Flags [.]
+```
