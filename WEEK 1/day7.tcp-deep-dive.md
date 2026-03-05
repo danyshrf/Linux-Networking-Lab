@@ -27,5 +27,6 @@ On VM1 run:Step 1 – Start Packet Capture
 
 On VM1 run:
 ```bash
-
+tcpdump -nn -i enp7s0 tcp port 80
 ```
+Explanation:
