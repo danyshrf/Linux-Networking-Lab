@@ -163,3 +163,11 @@ Root cause:
 Firewall DROP rule blocking port 80
 ```
 The SYN-ACK never returns.
+
+## Key Lessons
+
+- TCP uses a 3-way handshake to establish connections.
+- Packet capture reveals the exact network behavior.
+- SYN / SYN-ACK / ACK confirms connection establishment.
+- TCP flags indicate connection state.
+- Packet pattern recognition is critical for network troubleshooting.
