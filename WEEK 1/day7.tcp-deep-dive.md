@@ -132,3 +132,15 @@ ESTAB 0 0 192.168.100.10:45822 192.168.100.1:80
 Meaning:
 
 The connection between client and server is established.
+
+## Packet Pattern Recognition
+
+Packet captures reveal the root cause of many network issues.
+```text
+| Pattern                        | Meaning                             |
+| ------------------------------ | ----------------------------------- |
+| SYN → SYN → SYN                | Packet drop or firewall             |
+| SYN → RST                      | Port closed / service not listening |
+| Handshake succeeds but no data | Application issue                   |
+| Duplicate ACK + Retransmission | Packet loss                         |
+```
