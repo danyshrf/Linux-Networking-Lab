@@ -95,3 +95,17 @@ Meaning:
 | ACK  | Acknowledge received data                      |
 ```
 These packets contain HTTP request/response data.
+
+## TCP Connection Termination
+
+Example capture:
+```
+Client → Server : FIN
+Server → Client : ACK
+Server → Client : FIN
+Client → Server : ACK
+```
+This is called TCP 4-way termination.
+
+Why four packets?
+- Because TCP is full-duplex, meaning both sides close their data streams independently.
