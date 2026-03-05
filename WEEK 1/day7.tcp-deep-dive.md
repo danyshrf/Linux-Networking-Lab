@@ -11,3 +11,12 @@ TCP 3-way handshake
 - Data transfer packets
 - TCP connection termination
 - Recognizing packet patterns with tcpdump
+
+### Lab Architecture
+```
+| Machine | IP             | Role               |
+| ------- | -------------- | ------------------ |
+| VM1     | 192.168.100.1  | Web Server (nginx) |
+| VM2     | 192.168.100.10 | Client             |
+```
+VM2 will send HTTP requests to VM1.
