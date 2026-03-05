@@ -37,3 +37,10 @@ Explanation:
 | `-i enp7s0`   | Capture packets on this interface   |
 | `tcp port 80` | Filter HTTP traffic                 |
 ```
+## Step 2 – Generate Traffic
+
+From VM2:
+```bash
+curl http://192.168.100.1
+```
+
