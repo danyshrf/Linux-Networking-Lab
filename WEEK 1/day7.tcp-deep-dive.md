@@ -20,3 +20,12 @@ TCP 3-way handshake
 | VM2     | 192.168.100.10 | Client             |
 ```
 VM2 will send HTTP requests to VM1.
+
+## Step 1 – Start Packet Capture
+
+On VM1 run:Step 1 – Start Packet Capture
+
+On VM1 run:
+```bash
+
+```
