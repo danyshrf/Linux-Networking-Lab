@@ -30,3 +30,10 @@ On VM1 run:
 tcpdump -nn -i enp7s0 tcp port 80
 ```
 Explanation:
+```
+| Option        | Meaning                             |
+| ------------- | ----------------------------------- |
+| `-nn`         | Disable DNS/service name resolution |
+| `-i enp7s0`   | Capture packets on this interface   |
+| `tcp port 80` | Filter HTTP traffic                 |
+```
