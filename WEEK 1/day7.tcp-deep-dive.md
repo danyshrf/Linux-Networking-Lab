@@ -68,3 +68,14 @@ Server → Client
 Flags [S.]
 ```
 The server acknowledges the request and agrees to establish the connection.
+
+### Step 3 — ACK
+
+Client → Server
+```
+Flags [.]
+```
+The client confirms the connection.
+
+At this point the TCP connection is ESTABLISHED.
+
