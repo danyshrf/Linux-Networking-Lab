@@ -60,3 +60,11 @@ Client → Server
 Flags [S]
 ```
 The client requests a new TCP connection.
+
+### Step 2 — SYN-ACK
+
+Server → Client
+```
+Flags [S.]
+```
+The server acknowledges the request and agrees to establish the connection.
