@@ -119,3 +119,16 @@ Why four packets?
 | FIN  | Gracefully close connection |
 | RST  | Reset connection            |
 
+## Connection States with ss
+
+Check active TCP connections:
+```
+ss -tan
+```
+Example:
+```
+ESTAB 0 0 192.168.100.10:45822 192.168.100.1:80
+```
+Meaning:
+
+The connection between client and server is established.
