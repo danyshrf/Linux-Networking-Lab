@@ -20,3 +20,21 @@ Focus areas:
 | VM2 | 192.168.100.10 | Client |
 
 VM2 performs DNS queries to resolve internet domains.
+
+What DNS Does
+
+DNS translates domain names into IP addresses.
+
+Example:
+```
+google.com → 142.250.x.x
+```
+
+Without DNS, systems cannot reach websites using domain names.
+
+However, direct IP communication still works.
+
+Example:
+
+```bash
+curl http://142.250.72.206
