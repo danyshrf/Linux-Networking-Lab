@@ -138,3 +138,16 @@ Alternative DNS test:
 ```
 nslookup google.com
 ```
+## DNS Resolution Order (Linux)
+
+When an application resolves a domain:
+
+- ```/etc/hosts```
+- DNS servers from /etc/resolv.conf
+- Resolver configuration from /etc/nsswitch.conf
+- Query DNS server
+
+Example resolver rule:
+```
+hosts: files dns
+```
