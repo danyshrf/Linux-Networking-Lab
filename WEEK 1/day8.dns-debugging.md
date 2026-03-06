@@ -45,3 +45,12 @@ Check configured DNS servers:
 ```
 cat /etc/resolv.conf
 ```
+Example output:
+```
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+```
+Test resolution:
+```
+dig google.com
+```
