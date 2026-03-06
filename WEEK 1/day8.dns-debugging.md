@@ -84,3 +84,10 @@ connection timed out; no servers could be reached
 ```
 Reason:
 - The system cannot reach the configured DNS server.
+
+## Test With curl
+
+Try accessing a domain:
+```
+curl google.com
+```
