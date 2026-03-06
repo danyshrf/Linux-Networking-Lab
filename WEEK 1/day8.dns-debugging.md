@@ -119,3 +119,22 @@ This confirms the issue is DNS resolution, not connectivity.
 ```
 Key insight:
 - DNS problems affect name resolution, not raw IP communication.
+
+## DNS Debug Commands
+
+Check DNS configuration:
+```
+cat /etc/resolv.conf
+```
+Test DNS query:
+```
+dig google.com
+```
+Query specific DNS server:
+```
+dig @8.8.8.8 google.com
+```
+Alternative DNS test:
+```
+nslookup google.com
+```
