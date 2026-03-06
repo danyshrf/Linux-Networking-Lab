@@ -68,3 +68,6 @@ Edit resolver configuration:
 sudo nano /etc/resolv.conf
 ```
 Replace nameserver with an invalid IP:
+```
+nameserver 10.10.10.10
+```
