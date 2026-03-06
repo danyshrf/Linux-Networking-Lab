@@ -91,3 +91,9 @@ Try accessing a domain:
 ```
 curl google.com
 ```
+
+Result:
+```
+Could not resolve host: google.com
+```
+The system cannot convert the domain into an IP address.
