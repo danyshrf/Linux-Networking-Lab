@@ -185,3 +185,12 @@ Meaning:
 | NXDOMAIN response       | Domain does not exist     |
 | SERVFAIL                | DNS server internal error |
 ````
+
+## Key Lessons
+
+- DNS translates domain names into IP addresses.
+- ```/etc/resolv.conf``` controls which DNS server is used.
+- DNS failures often look like network problems.
+- Always test IP connectivity first, then DNS resolution.
+- ```dig``` is the primary DNS debugging tool.
+- ```tcpdump``` reveals actual DNS queries on the network.
