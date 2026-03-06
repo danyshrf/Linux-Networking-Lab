@@ -166,3 +166,12 @@ Run:
 ```
 dig google.com
 ```
+Example packets:
+```
+192.168.100.10.53021 > 8.8.8.8.53: A? google.com
+8.8.8.8.53 > 192.168.100.10.53021: A 142.250.72.206
+```
+Meaning:
+
+- Client sends DNS query
+- DNS server responds with IP address
