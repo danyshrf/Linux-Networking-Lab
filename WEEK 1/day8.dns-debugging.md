@@ -78,3 +78,9 @@ Run:
 ```
 dig google.com
 ```
+Expected result:
+```
+connection timed out; no servers could be reached
+```
+Reason:
+- The system cannot reach the configured DNS server.
