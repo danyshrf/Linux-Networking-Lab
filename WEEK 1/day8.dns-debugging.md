@@ -71,3 +71,10 @@ Replace nameserver with an invalid IP:
 ```
 nameserver 10.10.10.10
 ```
+
+## Step 3 – Test DNS Again
+
+Run:
+```
+dig google.com
+```
