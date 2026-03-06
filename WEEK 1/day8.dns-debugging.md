@@ -107,3 +107,13 @@ curl http://142.250.72.206
 If this works, the network path is working.
 
 This confirms the issue is DNS resolution, not connectivity.
+
+## DNS Failure vs Routing Failure
+```
+| Test              | DNS Failure | Routing Failure |
+| ----------------- | ----------- | --------------- |
+| `ping 8.8.8.8`    | Works       | Fails           |
+| `curl google.com` | Fails       | Fails           |
+| `curl 8.8.8.8`    | Works       | Fails           |
+| `dig google.com`  | Fails       | May fail        |
+```
