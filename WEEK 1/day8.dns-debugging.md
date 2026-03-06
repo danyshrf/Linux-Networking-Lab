@@ -60,3 +60,11 @@ ANSWER SECTION:
 google.com. 300 IN A 142.250.72.206
 ```
 DNS server successfully returned an IP address.
+
+## Step 2 – Break DNS
+
+Edit resolver configuration:
+```
+sudo nano /etc/resolv.conf
+```
+Replace nameserver with an invalid IP:
