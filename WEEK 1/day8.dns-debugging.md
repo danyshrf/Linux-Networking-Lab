@@ -54,3 +54,9 @@ Test resolution:
 ```
 dig google.com
 ```
+Expected output:
+```
+ANSWER SECTION:
+google.com. 300 IN A 142.250.72.206
+```
+DNS server successfully returned an IP address.
