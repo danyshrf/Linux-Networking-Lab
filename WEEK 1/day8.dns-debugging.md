@@ -117,3 +117,5 @@ This confirms the issue is DNS resolution, not connectivity.
 | `curl 8.8.8.8`    | Works       | Fails           |
 | `dig google.com`  | Fails       | May fail        |
 ```
+Key insight:
+- DNS problems affect name resolution, not raw IP communication.
