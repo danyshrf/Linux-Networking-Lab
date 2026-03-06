@@ -155,3 +155,14 @@ Meaning:
 
 - Check ```/etc/hosts```
 - Then check DNS servers
+
+## Packet-Level DNS Observation
+
+Capture DNS traffic:
+```bash
+tcpdump -nn -i enp7s0 port 53
+```
+Run:
+```
+dig google.com
+```
