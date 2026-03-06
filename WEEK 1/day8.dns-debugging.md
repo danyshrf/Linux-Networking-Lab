@@ -175,3 +175,13 @@ Meaning:
 
 - Client sends DNS query
 - DNS server responds with IP address
+
+## DNS Failure Patterns
+````
+| Packet Pattern          | Meaning                   |
+| ----------------------- | ------------------------- |
+| Query sent, no response | DNS server unreachable    |
+| No DNS packets          | Resolver misconfiguration |
+| NXDOMAIN response       | Domain does not exist     |
+| SERVFAIL                | DNS server internal error |
+````
