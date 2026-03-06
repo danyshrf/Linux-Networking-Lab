@@ -151,3 +151,7 @@ Example resolver rule:
 ```
 hosts: files dns
 ```
+Meaning:
+
+- Check ```/etc/hosts```
+- Then check DNS servers
