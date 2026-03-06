@@ -38,3 +38,10 @@ Example:
 
 ```bash
 curl http://142.250.72.206
+```
+## Step 1 – Verify DNS Works
+
+Check configured DNS servers:
+```
+cat /etc/resolv.conf
+```
