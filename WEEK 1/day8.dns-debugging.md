@@ -11,3 +11,12 @@ Focus areas:
 - Using `dig` to test DNS
 - Identifying DNS vs connectivity issues
 - Packet-level observation of DNS queries
+
+# 🏗 Lab Architecture
+
+| Machine | IP | Role |
+|--------|-------------|------|
+| VM1 | 192.168.100.1 | Router |
+| VM2 | 192.168.100.10 | Client |
+
+VM2 performs DNS queries to resolve internet domains.
