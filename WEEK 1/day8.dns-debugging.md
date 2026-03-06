@@ -97,3 +97,13 @@ Result:
 Could not resolve host: google.com
 ```
 The system cannot convert the domain into an IP address.
+
+## Test Direct IP Connectivity
+
+Try bypassing DNS:
+```
+curl http://142.250.72.206
+```
+If this works, the network path is working.
+
+This confirms the issue is DNS resolution, not connectivity.
