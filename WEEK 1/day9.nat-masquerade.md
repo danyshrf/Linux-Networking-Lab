@@ -120,3 +120,13 @@ SRC = 192.168.100.10
 ```
 External servers cannot route replies to private addresses.
 
+## Key NAT Concepts
+
+| Concept     | Explanation                             |
+| ----------- | --------------------------------------- |
+| SNAT        | Source NAT – change source IP           |
+| DNAT        | Destination NAT – change destination IP |
+| MASQUERADE  | Dynamic SNAT using interface IP         |
+| POSTROUTING | NAT applied after routing decision      |
+
+
