@@ -80,4 +80,13 @@ Explanation:
 | `MASQUERADE`  | Replace source IP with interface IP  |
 
 ```
+## Step 3 – Test Internet Access
+
+From VM2:
+```
+ping 8.8.8.8
+curl google.com
+```
+Expected result:
+- VM2 can access the internet through the router.
 
