@@ -41,3 +41,12 @@ Example packet from VM2:
 SRC: 192.168.100.10
 DST: 8.8.8.8
 ```
+If sent directly, the internet cannot send replies back.
+
+The router must rewrite the source IP.
+
+After NAT:
+```
+SRC: 192.168.122.10
+DST: 8.8.8.8
+```
