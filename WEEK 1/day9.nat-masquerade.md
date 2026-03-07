@@ -60,4 +60,8 @@ Check:
 ```bash
 sysctl net.ipv4.ip_forward
 ```
+Enable:
+```
+sysctl -w net.ipv4.ip_forward=1
+```
 
