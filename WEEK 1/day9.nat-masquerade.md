@@ -71,4 +71,13 @@ On VM1 run:
 iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE
 ```
 Explanation:
+```text
+| Option        | Meaning                              |
+| ------------- | ------------------------------------ |
+| `-t nat`      | Use NAT table                        |
+| `POSTROUTING` | Modify packet after routing decision |
+| `-o enp1s0`   | Outgoing WAN interface               |
+| `MASQUERADE`  | Replace source IP with interface IP  |
+
+```
 
