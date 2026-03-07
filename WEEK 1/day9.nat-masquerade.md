@@ -29,6 +29,15 @@ VM2 should access the internet **through VM1**.
 
 ---
 
-# 🧠 Why NAT Is Needed
+# Why NAT Is Needed
 
 Internal machines use **private IP addresses**:
+
+192.168.x.x
+These addresses are **not routable on the internet**.
+
+Example packet from VM2:
+```
+SRC: 192.168.100.10
+DST: 8.8.8.8
+```
