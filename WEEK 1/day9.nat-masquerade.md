@@ -101,4 +101,22 @@ You should see packets leaving with:
 SRC = 192.168.122.10
 ```
 instead of the internal address.
+
 This confirms NAT is rewriting the source IP.
+
+### Failure Scenario – NAT Disabled
+
+Flush NAT rules:
+```
+iptables -t nat -F
+```
+Now VM2 cannot reach the internet.
+
+Reason:
+
+Packets leave with private IP:
+```
+SRC = 192.168.100.10
+```
+External servers cannot route replies to private addresses.
+
