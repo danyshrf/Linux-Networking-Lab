@@ -52,3 +52,12 @@ DST: 8.8.8.8
 ```
 Now the internet replies to the router, which forwards the response back to VM2.
 
+Step 1 – Enable IP Forwarding
+
+Router must allow packet forwarding.
+
+Check:
+```bash
+sysctl net.ipv4.ip_forward
+```
+
