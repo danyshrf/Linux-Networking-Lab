@@ -52,7 +52,7 @@ DST: 8.8.8.8
 ```
 Now the internet replies to the router, which forwards the response back to VM2.
 
-Step 1 – Enable IP Forwarding
+## Step 1 – Enable IP Forwarding
 
 Router must allow packet forwarding.
 
@@ -64,4 +64,11 @@ Enable:
 ```
 sysctl -w net.ipv4.ip_forward=1
 ```
+## Step 2 – Enable NAT (Masquerading)
+
+On VM1 run:
+```
+iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE
+```
+Explanation:
 
