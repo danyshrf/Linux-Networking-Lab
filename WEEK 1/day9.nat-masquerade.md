@@ -130,3 +130,20 @@ External servers cannot route replies to private addresses.
 | POSTROUTING | NAT applied after routing decision      |
 
 
+### Real-World Relevance
+
+NAT is used in:
+- Home routers
+- Corporate networks
+- Cloud NAT gateways
+- Kubernetes networking
+- Container networking
+- It allows many internal machines to share a single public IP.
+
+ Key Lessons
+
+- Private IP addresses cannot access the internet directly.
+- NAT rewrites the source IP of outgoing packets.
+- MASQUERADE dynamically uses the router’s interface IP.
+- IP forwarding must be enabled for routers.
+- tcpdump can verify NAT behavior.
