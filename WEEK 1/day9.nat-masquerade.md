@@ -90,3 +90,15 @@ curl google.com
 Expected result:
 - VM2 can access the internet through the router.
 
+Observe NAT with tcpdump
+
+On VM1:
+```
+tcpdump -i enp1s0 icmp
+```
+You should see packets leaving with:
+```
+SRC = 192.168.122.10
+```
+instead of the internal address.
+This confirms NAT is rewriting the source IP.
