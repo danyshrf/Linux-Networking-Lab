@@ -50,3 +50,5 @@ After NAT:
 SRC: 192.168.122.10
 DST: 8.8.8.8
 ```
+Now the internet replies to the router, which forwards the response back to VM2.
+
