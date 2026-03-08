@@ -231,3 +231,18 @@ Client                     Server
    | <------------- FIN       |
    | ACK ------------------>  |
 ```
+Clean connection lifecycle.
+
+### If you see this pattern in tcpdump:
+```
+SYN → SYN-ACK → ACK → data → FIN
+```
+Then you immediately know:
+```
+✔ Routing works
+✔ Firewall allows traffic
+✔ Service running
+✔ Application responded
+✔ Connection closed properly
+```
+This is a healthy connection.
