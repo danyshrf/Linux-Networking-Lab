@@ -99,3 +99,38 @@ Mental model:
 Connection accepted
 Then immediately rejected
 ```
+
+### Pattern 4 - SYN → SYN-ACK → ACK (Handshake OK but request hangs)
+
+Packet capture:
+```
+SYN
+SYN-ACK
+ACK
+PSH
+ACK
+```
+But client waits forever.
+
+Meaning:
+- Network works
+- Application broken
+
+Typical causes:
+
+- backend service stuck
+- database query hanging
+- slow API
+
+Mental model:
+```
+Connection established
+Server not responding properly
+```
+### The Packet Pattern Cheat Sheet
+| Pattern               | Root Cause               |
+| --------------------- | ------------------------ |
+| SYN SYN SYN           | Firewall / routing issue |
+| SYN RST               | Port closed              |
+| SYN SYN-ACK ACK RST   | Connection aborted       |
+| Handshake OK but hang | Application issue        |
