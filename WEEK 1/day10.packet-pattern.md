@@ -153,3 +153,81 @@ This shows three phases of a TCP connection:
 1. Connection establishment
 2. Data transfer
 3. Graceful termination
+
+1. Connection Establishment (3-way handshake)
+```
+SYN
+SYN-ACK
+ACK
+```
+Meaning:
+| Step | Packet  | Explanation                     |
+| ---- | ------- | ------------------------------- |
+| 1    | SYN     | Client asks to start connection |
+| 2    | SYN-ACK | Server accepts                  |
+| 3    | ACK     | Client confirms                 |
+
+Now the connection state becomes:
+```
+ESTABLISHED
+```
+
+2. Data Transfer
+```
+PSH
+ACK
+```
+PSH means:
+```
+Send this data immediately to the application
+```
+Typical example:
+```
+HTTP request / response
+```
+Example flow:
+```
+Client → HTTP request
+Server → HTTP response
+```
+
+3. Graceful Connection Termination
+```
+FIN
+ACK
+FIN
+ACK
+```
+This is the 4-way TCP close.
+
+Why four packets?
+
+Because TCP is full duplex.
+
+Each side closes its own direction separately.
+| Step | Packet | Meaning                 |
+| ---- | ------ | ----------------------- |
+| 1    | FIN    | Client finished sending |
+| 2    | ACK    | Server acknowledges     |
+| 3    | FIN    | Server finished sending |
+| 4    | ACK    | Client acknowledges     |
+
+Connection state becomes:
+```
+CLOSED
+```
+### Visual Lifecycle
+```text
+Client                     Server
+   | SYN ------------------>  |
+   | <--------------- SYN-ACK |
+   | ACK ------------------>  |
+   |                          |
+   | PSH (data) ---------->   |
+   | <------------- ACK       |
+   |                          |
+   | FIN -------------------> |
+   | <------------- ACK       |
+   | <------------- FIN       |
+   | ACK ------------------>  |
+```
