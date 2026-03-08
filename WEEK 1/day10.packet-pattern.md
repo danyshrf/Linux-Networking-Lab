@@ -134,3 +134,22 @@ Server not responding properly
 | SYN RST               | Port closed              |
 | SYN SYN-ACK ACK RST   | Connection aborted       |
 | Handshake OK but hang | Application issue        |
+
+
+## Packet Pattern
+```bash
+SYN
+SYN-ACK
+ACK
+PSH
+ACK
+FIN
+ACK
+FIN
+ACK
+```
+This shows three phases of a TCP connection:
+
+1. Connection establishment
+2. Data transfer
+3. Graceful termination
