@@ -26,3 +26,63 @@ ip route               # View the active routing table
 ip route get 8.8.8.8   # Simulate path selection to see exactly how Linux will route a packet
 ip addr                # Verify interface statuses
 tcpdump                # Capture packet flow to verify hop-by-hop routing behavior
+```
+
+If VM2 has default gateway 192.168.100.1
+But VM1 has no default route
+
+Can VM2 reach internet?
+
+->Packet Flow
+
+Scenario:
+
+- VM2 → 192.168.100.10
+- Gateway → 192.168.100.1 (VM1)
+- VM1 has no default route
+- Destination → 8.8.8.8
+
+### Step 1 — VM2 Makes Routing Decision
+
+VM2 checks:
+
+Is 8.8.8.8 inside 192.168.100.0/24?
+
+❌ No.
+
+So it uses default route:
+```
+default via 192.168.100.1
+```
+It ARPs for 192.168.100.1
+Gets router MAC
+Sends packet to VM1
+
+So far everything is correct. 
+
+### Step 2 — VM1 Makes Routing Decision
+
+VM1 receives packet destined to 8.8.8.8
+
+Now VM1 checks:
+
+- 192.168.100.0/24? ❌
+- 192.168.200.0/24? ❌
+- Any static route? ❌
+- Default route? ❌
+
+No match.
+
+So kernel returns:
+```
+Network unreachable
+```
+Packet is dropped.
+
+### The Big Rule 
+
+**Every router in the path must have a route to the next hop util it reaches the destination.**
+
+- Networking is hop-by-hop routing.
+- There is no “end-to-end global route.”
+- Each router makes an independent decision
