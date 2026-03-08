@@ -20,5 +20,56 @@ Possible causes:
 - routing issue
 - host unreachable
 
+Example:
+```
+tcpdump -nn port 80
+```
+Output:
+```
+192.168.100.10 > 192.168.100.1 SYN
+192.168.100.10 > 192.168.100.1 SYN
+192.168.100.10 > 192.168.100.1 SYN
+```
+Mental model:
+```
+Client knocking on door
+No one answering
+```
 
 ### Pattern 2 – SYN followed by RST
+
+Packet capture:
+```
+SYN
+RST
+```
+Meaning:
+```
+Host reachable
+But port closed
+```
+Typical causes:
+
+- service stopped
+- wrong port
+- application not listening
+
+Example:
+```
+systemctl stop nginx
+```
+Then run:
+```
+curl server-ip
+```
+
+Packet pattern:
+```
+SYN
+RST
+```
+Mental model:
+```
+Door exists
+But nobody is running the service
+```
