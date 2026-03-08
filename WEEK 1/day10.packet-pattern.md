@@ -73,3 +73,29 @@ Mental model:
 Door exists
 But nobody is running the service
 ```
+### Pattern 2 - SYN → SYN-ACK → ACK → RST
+
+Packet capture:
+```
+SYN
+SYN-ACK
+ACK
+RST
+```
+Meaning:
+```
+Connection established
+Then immediately aborted
+```
+Typical causes:
+
+- client application closed socket
+- protocol mismatch
+- TLS/HTTP mismatch
+- application logic rejecting connection
+
+Mental model:
+```
+Connection accepted
+Then immediately rejected
+```
